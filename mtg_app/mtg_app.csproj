@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.3" />
+    <PackageReference Include="Mono.HttpUtility" Version="1.0.0.1" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5SpFiJYSn1cblXO5ReRzaGleXRbSMy0KlT76K7VIM/Rr3hbmXpAvhr8HKscO4suv+6ju3EFqydnfClABakUeCw==",
+  "dgSpecHash": "7cpFFY5i3Px3Hqur2JrLuI8CJS4Fwl3ypHNybbYANWiQdhKJk9S8vFFG0KJgOFcDJYGiZ0IbEFBMCfNT4pXK/g==",
   "success": true,
   "projectFilePath": "D:\\eric_\\Git\\magicGit\\mtg_app\\mtg_app.csproj",
   "expectedPackageFiles": [
@@ -69,6 +69,7 @@
     "C:\\Users\\eric_\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\eric_\\.nuget\\packages\\mono.httputility\\1.0.0.1\\mono.httputility.1.0.0.1.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\npgsql\\6.0.0\\npgsql.6.0.0.nupkg.sha512",
@@ -179,5 +180,16 @@
     "C:\\Users\\eric_\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Mono.HttpUtility 1.0.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Mono.HttpUtility",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
