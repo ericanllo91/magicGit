@@ -1,0 +1,14 @@
+D:\eric_\Git\magicGit\mtg_lib\bin\Debug\net6.0\mtg_lib.deps.json
+D:\eric_\Git\magicGit\mtg_lib\bin\Debug\net6.0\mtg_lib.runtimeconfig.json
+D:\eric_\Git\magicGit\mtg_lib\bin\Debug\net6.0\mtg_lib.dll
+D:\eric_\Git\magicGit\mtg_lib\bin\Debug\net6.0\mtg_lib.pdb
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\mtg_lib.csproj.AssemblyReference.cache
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\mtg_lib.GeneratedMSBuildEditorConfig.editorconfig
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\mtg_lib.AssemblyInfoInputs.cache
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\mtg_lib.AssemblyInfo.cs
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\mtg_lib.csproj.CoreCompileInputs.cache
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\mtg_lib.dll
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\refint\mtg_lib.dll
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\mtg_lib.pdb
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\mtg_lib.genruntimeconfig.cache
+D:\eric_\Git\magicGit\mtg_lib\obj\Debug\net6.0\ref\mtg_lib.dll
