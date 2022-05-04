@@ -1,0 +1,26 @@
+
+@model IEnumerable<mtg_app.Models.RarityViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <h1>Item is:</h1>
+
+    </p>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>%=Html.ActionLink(item.Name,"Browse", new {RarityViewModel=item.Name})</li>
+            <li>@item.Name</li>
+        }
+    </ul>
+</body>
+</html>

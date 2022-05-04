@@ -10,24 +10,33 @@ namespace mtg_app.Controllers
 {
     public class StoreController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View();
+            var Raritys = new List<RarityViewModel>
+            {
+                new RarityViewModel{Name="ONE"},
+                new RarityViewModel{Name="TWO"},
+                new RarityViewModel{Name="THREE"},
+                new RarityViewModel{Name="FOUR"}
+            };
+            return View(Raritys);
         }
 
 
-        public string Browse(string category)
+        public ActionResult Browse(string category)
         // store/browse?category=perro
         {
-            string message = "hello "+ category;
-            return message;
+            var Rarity = new RarityViewModel{
+                Name = "rarity "+ category
+            };
+            return View(Rarity);
         }
 
         public ActionResult Details(int id)
         {
-            var Item = new CardViewModel
+            var Card = new CardViewModel
             {Name = "name"+id};
-            return View(Item);
+            return View(Card);
 
         }
     }
