@@ -46,7 +46,7 @@
           "dependencies": {
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.3, )"
+              "version": "[6.0.0, )"
             },
             "Mono.HttpUtility": {
               "target": "Package",

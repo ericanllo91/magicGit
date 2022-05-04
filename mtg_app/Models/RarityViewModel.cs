@@ -1,6 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using mtg_lib.Library.Services;
+using mtg_app.Models;
 
 namespace mtg_app.Models
 

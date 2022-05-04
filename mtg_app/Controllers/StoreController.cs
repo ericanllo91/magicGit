@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using mtg_app.Models;
 
 
 namespace mtg_app.Controllers
@@ -22,9 +23,12 @@ namespace mtg_app.Controllers
             return message;
         }
 
-        public string Details(int id)
+        public ActionResult Details(int id)
         {
-            return "Hello from Details" + id;
+            var Item = new CardViewModel
+            {Name = "name"+id};
+            return View(Item);
+
         }
     }
 }
