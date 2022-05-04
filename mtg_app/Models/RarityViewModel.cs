@@ -7,7 +7,7 @@ namespace mtg_app.Models
 {
     public class RarityViewModel {
 
-
+        public List<CardViewModel> Cards {get;set;}
         public string Name {get;set;}
         public string Code {get;set;}
         public string PageTitle { get; set; }

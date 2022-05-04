@@ -23,11 +23,11 @@ namespace mtg_app.Controllers
         }
 
 
-        public ActionResult Browse(string category)
+        public ActionResult Browse(string RarityViewModel)
         // store/browse?category=perro
         {
             var Rarity = new RarityViewModel{
-                Name = "rarity "+ category
+                Name = "rarity "+ RarityViewModel
             };
             return View(Rarity);
         }

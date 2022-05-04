@@ -18,8 +18,7 @@
     <ul>
         @foreach (var item in Model)
         {
-            <li>%=Html.ActionLink(item.Name,"Browse", new {RarityViewModel=item.Name})</li>
-            <li>@item.Name</li>
+            <li>@Html.ActionLink(item.Name,"Browse", new {RarityViewModel=item.Name})</li>
         }
     </ul>
 </body>
