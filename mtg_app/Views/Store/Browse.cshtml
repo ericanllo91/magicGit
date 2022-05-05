@@ -1,4 +1,4 @@
-@model mtg_app.Models.RarityViewModel
+@model mtg_app.Models.CardsViewModel
 @{
     Layout = null;
 }
@@ -11,6 +11,20 @@
     <title>Details</title>
 </head>
 <body>
-    <h1>Item is: @Model.Name</h1>
+    <h1>Item is:TEST</h1>
+
+    <h2>NOT WORKING</h2>
+    <ul>
+        @foreach (var item in Model.Cards)
+        {
+            @if (item.Price != null){
+                <li>@item.Name</li>
+                <li>@item.Multiverse_id</li>
+                <li>@item.Price</li>
+                <li>@item.Type</li>
+            }
+            
+        }
+    </ul>
 </body>
 </html>

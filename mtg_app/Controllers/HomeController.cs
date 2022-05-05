@@ -4,7 +4,6 @@ using mtg_app.Models;
 using mtg_lib.Library.Services;
 using Microsoft.AspNetCore.Mvc;
 using mtg_app.Models;
-using mtg_lib.Library.Services;
 using System.Net;
 using Newtonsoft.Json;
 
@@ -18,6 +17,7 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+
 
     CardService cardService = new CardService();
 
@@ -59,17 +59,11 @@ public class HomeController : Controller
                     {
                         Name = c.Name,
                         Multiverse_id = c.MultiverseId,
-                        Type = GetPrice(c.MultiverseId)
-                    
-                        
-                        //Url = c.OriginalImageUrl
+                        Type = GetPrice(c.MultiverseId),                       
+                        Url = c.OriginalImageUrl
                     })
-                .ToList()
-    }; 
-}
-
-    
-
-
+                .ToList()        
+        }; 
+    }
 
 }

@@ -1,10 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mtg_app.Models;
 using mtg_lib.Library.Services;
+using Microsoft.AspNetCore.Mvc;
+using mtg_app.Models;
+using System.Net;
+using Newtonsoft.Json;
 
 
 
@@ -12,6 +13,8 @@ namespace mtg_app.Controllers
 {
     public class StoreController : Controller
     {
+
+        CardService cardService = new CardService();
         public ActionResult Index()
         {
             var Raritys = new List<RarityViewModel>
@@ -24,14 +27,47 @@ namespace mtg_app.Controllers
             return View(Raritys);
         }
 
-
-        public ActionResult Browse(string RarityViewModel)
-        // store/browse?category=perro
+        public string GetPrice(int? id)
         {
-            var Rarity = new RarityViewModel{
-                Name = "rarity "+ RarityViewModel
+           // 129535
+            WebClient wc = new WebClient();
+            string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
+            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
+            string price = dobj[1]["marketPrice"];
+            //return View(CreateCardsViewModel());
+            return price;
+        }
+
+
+        //[Route("[action]")]
+        public IActionResult Browse(string rarity)
+         // store/browse?rarity=U
+         //U C M R S B
+        {
+            
+            return View(createRarity(rarity));
+        }
+
+
+
+        private CardsViewModel createRarity(string rarity)
+        {
+            return new CardsViewModel
+            {
+                Cards = cardService
+                    .getCardByRarity(rarity)
+                    .Select(c =>
+                        new CardViewModel
+                        {
+                            Name = c.Name,
+                            Multiverse_id = c.MultiverseId,
+                            //Rarity = c.RarityCode,
+                            Price = GetPrice(c.MultiverseId)
+                            //Url = c.OriginalImageUrl
+                        })
+                    .ToList()
             };
-            return View(Rarity);
+            //return View(Cards);
         }
 
         public ActionResult Details(int id)

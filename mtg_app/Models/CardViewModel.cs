@@ -12,5 +12,7 @@ namespace mtg_app.Models
         public long CategoryId {get;set;}
         public int? Multiverse_id {get;set;}
         public string Type {get;set;}
+
+        public string Code {get;set;}
     }
 }
