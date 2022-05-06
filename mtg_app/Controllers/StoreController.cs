@@ -50,13 +50,17 @@ namespace mtg_app.Controllers
 
 
 
-        private CardsViewModel createRarity(string rarity)
+        public CardsViewModel createRarity(string rarity)
         {
             return new CardsViewModel
             {
+                PageTitle = "Cards",
+                Rarity = rarity,
+                ColumnTitleProductName = "Product name",
+                ColumnTitleUnitPrice = "Product price",
                 Cards = cardService
                     .getCardByRarity(rarity)
-                    .Take(100)
+                    .Take(10)
                     .Select(c =>
                         new CardViewModel
                         {
