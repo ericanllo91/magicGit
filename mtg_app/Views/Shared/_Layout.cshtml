@@ -1,22 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@model mtg_app.Models.CardsViewModel
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="~/wwwroot/site.css">
+    <!-- Styles.Render("~/wwwroot/css")-->
 
 
 </head>
 <body>
-    <div id="fb-root"></div>
-    <script>
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1762167914102100";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -32,7 +27,9 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Store", "Index", "Store")</li>
+                    <li>@Html.ActionLink("Store->RARITY", "Index", "Store")</li>
+                    <li>@Html.ActionLink("Browse", "Browse", "Store", new {rarity = "U"})</li>
+                    <!-- NAME DISPLAYING / Controller / View -->
                     <li>@Html.ActionLink("StoreManager", "Index", "StoreManager")</li>
 
 

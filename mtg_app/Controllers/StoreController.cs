@@ -56,14 +56,15 @@ namespace mtg_app.Controllers
             {
                 Cards = cardService
                     .getCardByRarity(rarity)
+                    .Take(100)
                     .Select(c =>
                         new CardViewModel
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
                             //Rarity = c.RarityCode,
-                            Price = GetPrice(c.MultiverseId)
-                            //Url = c.OriginalImageUrl
+                            Price = GetPrice(c.MultiverseId),
+                            Url = c.OriginalImageUrl
                         })
                     .ToList()
             };
