@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+0jCsgYH21Rza71UL6tB8mRjitlliUgxtrj4DkHQ0F8=",
+  "Hash": "3esbbnP5tjwdIIXk9a1WbKUxIRg9YkBsXAvd3U/+Vx4=",
   "Source": "mtg_app",
   "BasePath": "_content/mtg_app",
   "Mode": "Default",
@@ -865,6 +865,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "D:\\eric_\\Git\\magicGit\\mtg_app\\wwwroot\\lib\\img\\magic.jpg",
+      "SourceId": "mtg_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\eric_\\Git\\magicGit\\mtg_app\\wwwroot\\",
+      "BasePath": "_content/mtg_app",
+      "RelativePath": "lib/img/magic.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\img\\magic.jpg"
     },
     {
       "Identity": "D:\\eric_\\Git\\magicGit\\mtg_app\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",

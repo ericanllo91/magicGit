@@ -39,6 +39,10 @@ button.accept-policy[b-w9mmnrinne] {
   line-height: inherit;
 }
 
+body[b-w9mmnrinne] {
+  background-color: aqua;
+}
+
 .footer[b-w9mmnrinne] {
   position: absolute;
   bottom: 0;

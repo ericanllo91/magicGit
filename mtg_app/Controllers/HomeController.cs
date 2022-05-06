@@ -53,7 +53,7 @@ public class HomeController : Controller
         return new CardsViewModel
         {
             Cards = cardService
-                .HundredCards()
+                .TenCards()
                 .Select(c =>
                     new CardViewModel
                     {

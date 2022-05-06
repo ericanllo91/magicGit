@@ -11,7 +11,7 @@ namespace mtg_app.Models
         public string PageTitle { get; set; }
         public string ColumnTitleUnitPrice { get; set; }
         public string ColumnTitleProductName { get; set; }
-        public int CategoryId {get; set;}
+        public string Rarity {get; set;}
         public string SearchValue {get; set;}
         
     }
