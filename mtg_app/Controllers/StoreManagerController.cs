@@ -19,6 +19,33 @@ namespace mtg_app.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult SaveCard(CardViewModel card)
+        {
+
+            var errors = ModelState.Where(x => x.Value.Errors.Any())
+                .Select(x => new { x.Key, x.Value.Errors });
+            
+            System.Diagnostics.Debug.WriteLine(errors);
+            // ModelState is always available in a controller.
+            if (ModelState.IsValid)
+            {
+                cardService.Add((string)card.Name, (string?)card.Rarity, (string)card.ConvertedManaCost, (string)card.Type, (string)card.SetCode, (string)card.Number, (string)card.Layout, (string)card.Image, (string)card.MtgId);
+
+                return RedirectToAction("Browse",
+                    "Store",
+                    new { Rarity = card.Rarity });
+            }
+            
+
+            ModelState.AddModelError("", "Not all fields are filled in correctly.");
+            return View("Index");
+        }
+
+
+
+
+
         //[Route("[action]")]
         public IActionResult Create(string rarity)
         //storemanager/create?rarity=U

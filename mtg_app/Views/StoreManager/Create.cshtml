@@ -11,13 +11,80 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Overview" asp-action="SaveProduct" method="Post">
+        <form asp-controller="StoreManager" asp-action="SaveCard" method="Post">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+            
+            <div class="form-group">
+                <label asp-for="Rarity" class="control-label"></label>
+                <input asp-for="Rarity" class="form-control" />
+                <span asp-validation-for="Rarity" class="text-danger"></span>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <label asp-for="ConvertedManaCost" class="control-label"></label>
+                <input asp-for="ConvertedManaCost" class="form-control" />
+                <span asp-validation-for="ConvertedManaCost" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SetCode" class="control-label"></label>
+                <input asp-for="SetCode" class="form-control" />
+                <span asp-validation-for="SetCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Layout" class="control-label"></label>
+                <input asp-for="Layout" class="form-control" />
+                <span asp-validation-for="Layout" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MtgId" class="control-label"></label>
+                <input asp-for="MtgId" class="form-control" />
+                <span asp-validation-for="MtgId" class="text-danger"></span>
+            </div>
+
+            
+
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+
+            
         </form>
     </div>
 </div>
