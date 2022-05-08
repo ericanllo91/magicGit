@@ -42,8 +42,8 @@ namespace mtg_app.Controllers
 
 
         //[Route("[action]")]
-        public IActionResult Browse(string rarity)
-         // store/browse?rarity=U
+        public IActionResult BrowseR(string rarity)
+         // store/browser?rarity=U
          //U C M R S B
         {
             

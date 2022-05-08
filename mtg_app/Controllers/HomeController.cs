@@ -43,7 +43,7 @@ public class HomeController : Controller
         {
             Cards = cardService
                 .AllCards()
-                .Take(25)
+                .Take(5)
                 .Select(c =>
                     new CardViewModel
                     {

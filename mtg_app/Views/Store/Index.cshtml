@@ -16,12 +16,18 @@
 
     </p>
     <ul>
-        <li>@Html.ActionLink("Uncommon", "Browse", "Store", new {rarity = "U"})</li>
-        <li>@Html.ActionLink("Common", "Browse", "Store", new {rarity = "C"})</li>
-        <li>@Html.ActionLink("Myrhic", "Browse", "Store", new {rarity = "M"})</li>
-        <li>@Html.ActionLink("Rare", "Browse", "Store", new {rarity = "R"})</li>
-        <li>@Html.ActionLink("Special", "Browse", "Store", new {rarity = "S"})</li>
-        <li>@Html.ActionLink("Bonus", "Browse", "Store", new {rarity = "B"})</li>
+        <!-- Name to show in HTML - Method - FROM CONTROLLER -->
+        <li>@Html.ActionLink("Rarity", "BrowseR", "Store", new {rarity = "U"})</li>
+        <li>@Html.ActionLink("Id", "Browse", "Store", new {rarity = "U"})</li>
+
+
+
+        <li>@Html.ActionLink("Uncommon", "BrowseR", "Store", new {rarity = "U"})</li>
+        <li>@Html.ActionLink("Common", "BrowseR", "Store", new {rarity = "C"})</li>
+        <li>@Html.ActionLink("Myrhic", "BrowseR", "Store", new {rarity = "M"})</li>
+        <li>@Html.ActionLink("Rare", "BrowseR", "Store", new {rarity = "R"})</li>
+        <li>@Html.ActionLink("Special", "BrowseR", "Store", new {rarity = "S"})</li>
+        <li>@Html.ActionLink("Bonus", "BrowseR", "Store", new {rarity = "B"})</li>
 
     </ul>
 </body>
