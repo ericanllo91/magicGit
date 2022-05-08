@@ -2428,6 +2428,7 @@
         "dependencies": {
           "HtmlAgilityPack": "1.11.42",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
+          "Newtonsoft.Json": "13.0.1",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL.Design": "1.1.0"
         },

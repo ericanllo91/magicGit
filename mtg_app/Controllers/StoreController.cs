@@ -28,6 +28,7 @@ namespace mtg_app.Controllers
             return View(Raritys);
         }
 
+        // IN THE SERVICE
         public string GetPrice(int? id)
         {
             // https://mpapi.tcgplayer.com/v2/product/130550/pricepoints
@@ -112,6 +113,40 @@ namespace mtg_app.Controllers
                             Url = cardService.GetCardById(multiverse).OriginalImageUrl
                         };
             //return View(Cards);
+        }
+
+
+
+        public IActionResult BrowseP()
+         // store/browser?rarity=U
+         //U C M R S B
+        {
+            return View(createPrice());
+        }
+
+
+
+        public CardsViewModel createPrice()
+        {
+            return new CardsViewModel
+            {
+                PageTitle = "Cards",
+                ColumnTitleProductName = "Product name",
+                ColumnTitleUnitPrice = "Product price",
+                Cards = cardService
+                    .AllCards()
+                    .Take(1000)
+                    .Select(c =>
+                        new CardViewModel
+                        {
+                            Name = c.Name,
+                            Multiverse_id = c.MultiverseId,
+                            //Rarity = c.RarityCode,
+                            Price = GetPrice(c.MultiverseId),
+                            Url = c.OriginalImageUrl
+                        })
+                    .ToList()
+            };
         }
 
         public ActionResult Details()

@@ -16298,6 +16298,11 @@
   "RootNamespace": "mtg_app",
   "Documents": [
     {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\BrowseP.cshtml",
+      "TargetPath": "Views\\Store\\BrowseP.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\User\\Login.cshtml",
       "TargetPath": "Views\\User\\Login.cshtml",
       "FileKind": "mvc"
