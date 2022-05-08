@@ -55,8 +55,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Store/Browser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcQnJvd3Nlci5jc2h0bWw=
+[D:/eric_/Git/magicGit/mtg_app/Views/Store/BrowseM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcQnJvd3NlTS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/eric_/Git/magicGit/mtg_app/Views/Store/BrowseR.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcQnJvd3NlUi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/eric_/Git/magicGit/mtg_app/Views/Store/Details.cshtml]

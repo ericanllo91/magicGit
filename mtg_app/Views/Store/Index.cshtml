@@ -1,5 +1,5 @@
 
-@model IEnumerable<mtg_app.Models.RarityViewModel>
+
 @{
     Layout = null;
 }
@@ -17,17 +17,11 @@
     </p>
     <ul>
         <!-- Name to show in HTML - Method - FROM CONTROLLER -->
-        <li>@Html.ActionLink("Rarity", "BrowseR", "Store", new {rarity = "U"})</li>
-        <li>@Html.ActionLink("Id", "Browse", "Store", new {rarity = "U"})</li>
+        <li>@Html.ActionLink("Rarity", "Details", "Store")</li>
+        <li>@Html.ActionLink("Id", "BrowseM", "Store")</li>
 
 
 
-        <li>@Html.ActionLink("Uncommon", "BrowseR", "Store", new {rarity = "U"})</li>
-        <li>@Html.ActionLink("Common", "BrowseR", "Store", new {rarity = "C"})</li>
-        <li>@Html.ActionLink("Myrhic", "BrowseR", "Store", new {rarity = "M"})</li>
-        <li>@Html.ActionLink("Rare", "BrowseR", "Store", new {rarity = "R"})</li>
-        <li>@Html.ActionLink("Special", "BrowseR", "Store", new {rarity = "S"})</li>
-        <li>@Html.ActionLink("Bonus", "BrowseR", "Store", new {rarity = "B"})</li>
 
     </ul>
 </body>

@@ -36,17 +36,24 @@ namespace mtg_app.Controllers
             string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
             dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
             string price = dobj[1]["marketPrice"];
-            //return View(CreateCardsViewModel());
             return price;
         }
 
+/*
+        public IActionResult BrowseR(string rarity)
+         // MULTIVERSE
+         // /store/browseM
+        {
+            CardsViewModel card = createRarity("U");
+            return View(card);
+        }
+        */
 
-        //[Route("[action]")]
+
         public IActionResult BrowseR(string rarity)
          // store/browser?rarity=U
          //U C M R S B
         {
-            
             return View(createRarity(rarity));
         }
 
@@ -74,14 +81,43 @@ namespace mtg_app.Controllers
                         })
                     .ToList()
             };
+        }
+
+
+        public IActionResult BrowseM()
+         // MULTIVERSE
+         // /store/browseM
+        {
+            CardViewModel card = createMultiverse(1);
+            return View(card);
+        }
+    
+
+        [HttpPost]
+        public IActionResult BrowseM(int multiverse)
+         // MULTIVERSE
+         // /store/browseM?multiverse=130550
+        {
+            return View(createMultiverse(multiverse));
+        }
+
+        public CardViewModel createMultiverse(int multiverse)
+        {
+            return new CardViewModel
+                        {
+                            Name = cardService.GetCardById(multiverse).Name,
+                            Multiverse_id = cardService.GetCardById(multiverse).MultiverseId,
+                            //Rarity = c.RarityCode,
+                            //Price = GetPrice(c.MultiverseId),
+                            Url = cardService.GetCardById(multiverse).OriginalImageUrl
+                        };
             //return View(Cards);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details()
         {
-            var Card = new CardViewModel
-            {Name = "name"+id};
-            return View(Card);
+ 
+            return View();
 
         }
     }

@@ -10,6 +10,7 @@ namespace mtg_app.Models
 
         public string? Price {get;set;}
         public long? CategoryId {get;set;}
+
         public int? Multiverse_id {get;set;}
         //public string? Type {get;set;}
 

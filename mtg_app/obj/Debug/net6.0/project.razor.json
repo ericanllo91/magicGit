@@ -16333,6 +16333,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\BrowseM.cshtml",
+      "TargetPath": "Views\\Store\\BrowseM.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\StoreManager\\Create.cshtml",
       "TargetPath": "Views\\StoreManager\\Create.cshtml",
       "FileKind": "mvc"
