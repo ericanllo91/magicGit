@@ -37,30 +37,21 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    public string GetPrice(int? id)
-        {
-           // 129535
-            WebClient wc = new WebClient();
-            string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
-            dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
-            string price = dobj[1]["marketPrice"];
-            //return View(CreateCardsViewModel());
-            return price;
-        }
-
     private CardsViewModel CreateTen()
     {
         return new CardsViewModel
         {
             Cards = cardService
-                .TenCards()
+                .AllCards()
+                .Take(25)
                 .Select(c =>
                     new CardViewModel
                     {
                         Name = c.Name,
                         Multiverse_id = c.MultiverseId,
-                        Type = GetPrice(c.MultiverseId),                       
-                        Url = c.OriginalImageUrl
+                        //Type = GetPrice(c.MultiverseId),                       
+                        Url = c.OriginalImageUrl,
+                        Price = new StoreController().GetPrice(c.MultiverseId)
                     })
                 .ToList()        
         }; 

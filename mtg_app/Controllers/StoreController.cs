@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mtg_app.Models;
+using mtg_app.Controllers;
 using mtg_lib.Library.Services;
 using Microsoft.AspNetCore.Mvc;
 using mtg_app.Models;
@@ -29,7 +30,8 @@ namespace mtg_app.Controllers
 
         public string GetPrice(int? id)
         {
-           // 129535
+            // https://mpapi.tcgplayer.com/v2/product/130550/pricepoints
+            // 129535
             WebClient wc = new WebClient();
             string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
             dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
