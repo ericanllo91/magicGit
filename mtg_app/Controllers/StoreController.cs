@@ -85,6 +85,7 @@ namespace mtg_app.Controllers
         }
 
 
+        // BROWSE BY MULTIVERSE !!
         public IActionResult BrowseM()
          // MULTIVERSE
          // /store/browseM
@@ -146,7 +147,9 @@ namespace mtg_app.Controllers
                             Url = c.OriginalImageUrl
                         })
                     .ToList()
+                    
             };
+            
         }
 
         public ActionResult Details()
