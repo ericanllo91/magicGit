@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rvGvBYwwhyBsnEhhhXIYoowZqC9uuTsablHZIpiFSASfIANTB1LUcRsi1rB88MhJ53wmEAv+Lwsz8YWXM3/KPg==",
+  "dgSpecHash": "sM6CVJ/fTQh49JBA2wZMHw7/ofhTz/IS5tCu1SlyFiQbQs3X+4/EHZy7p3qGAafYsmWTRn42BVmIIcvYvB0PnA==",
   "success": true,
   "projectFilePath": "D:\\eric_\\Git\\magicGit\\mtg_app\\mtg_app.csproj",
   "expectedPackageFiles": [
@@ -192,7 +192,8 @@
     "C:\\Users\\eric_\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\eric_\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\eric_\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\eric_\\.nuget\\packages\\web.ui.webcontrols\\1.0.2.226\\web.ui.webcontrols.1.0.2.226.nupkg.sha512"
   ],
   "logs": [
     {
@@ -241,6 +242,16 @@
       "warningLevel": 1,
       "message": "Package 'Mono.HttpUtility 1.0.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Mono.HttpUtility",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Web.UI.WebControls 1.0.2.226' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Web.UI.WebControls",
       "targetGraphs": [
         "net6.0"
       ]

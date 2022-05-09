@@ -28,7 +28,8 @@ namespace mtg_app.Controllers
             return View(Raritys);
         }
 
-        public string GetPrice(int? id)
+        // IN THE SERVICE
+        public decimal GetPrice(int? id)
         {
             // https://mpapi.tcgplayer.com/v2/product/130550/pricepoints
             // 129535
@@ -36,17 +37,25 @@ namespace mtg_app.Controllers
             string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
             dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
             string price = dobj[1]["marketPrice"];
-            //return View(CreateCardsViewModel());
-            return price;
+            //float priceInt = float.Parse(price);
+            return decimal.Parse(price);
         }
 
+/*
+        public IActionResult BrowseR(string rarity)
+         // MULTIVERSE
+         // /store/browseM
+        {
+            CardsViewModel card = createRarity("U");
+            return View(card);
+        }
+        */
 
-        //[Route("[action]")]
-        public IActionResult Browse(string rarity)
-         // store/browse?rarity=U
+
+        public IActionResult BrowseR(string rarity)
+         // store/browser?rarity=U
          //U C M R S B
         {
-            
             return View(createRarity(rarity));
         }
 
@@ -69,19 +78,86 @@ namespace mtg_app.Controllers
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
                             //Rarity = c.RarityCode,
-                            Price = GetPrice(c.MultiverseId),
+                            //Price = GetPrice(c.MultiverseId),
                             Url = c.OriginalImageUrl
                         })
                     .ToList()
             };
+        }
+
+
+        // BROWSE BY MULTIVERSE !!
+        public IActionResult BrowseM()
+         // MULTIVERSE
+         // /store/browseM
+        {
+            CardViewModel card = createMultiverse(1);
+            return View(card);
+        }
+    
+
+        [HttpPost]
+        public IActionResult BrowseM(int multiverse)
+         // MULTIVERSE
+         // /store/browseM?multiverse=130550
+        {
+            return View(createMultiverse(multiverse));
+        }
+
+        public CardViewModel createMultiverse(int multiverse)
+        {
+            return new CardViewModel
+                        {
+                            Name = cardService.GetCardById(multiverse).Name,
+                            Multiverse_id = cardService.GetCardById(multiverse).MultiverseId,
+                            //Rarity = c.RarityCode,
+                            //Price = GetPrice(c.MultiverseId),
+                            Url = cardService.GetCardById(multiverse).OriginalImageUrl
+                        };
             //return View(Cards);
         }
 
-        public ActionResult Details(int id)
+
+
+        public IActionResult BrowseP()
+         // store/browser?rarity=U
+         //U C M R S B
         {
-            var Card = new CardViewModel
-            {Name = "name"+id};
-            return View(Card);
+            return View(createPrice());
+        }
+
+
+
+        public CardsViewModel createPrice()
+        {
+            decimal price = decimal.Parse("25.40");
+            return new CardsViewModel
+            {
+                PageTitle = "Cards",
+                ColumnTitleProductName = "Product name",
+                ColumnTitleUnitPrice = "Product price",
+                Cards = cardService
+                    .AllCards()
+                    .Take(10)
+                    .Select(c =>
+                        new CardViewModel
+                        {
+                            Name = c.Name,
+                            Multiverse_id = c.MultiverseId,
+                            Price = price , 
+                            //Price = GetPrice(c.MultiverseId),
+                            Url = c.OriginalImageUrl
+                        })
+                    .ToList()
+                    
+            };
+            
+        }
+
+        public ActionResult Details()
+        {
+ 
+            return View();
 
         }
     }

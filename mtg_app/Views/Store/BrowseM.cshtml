@@ -1,0 +1,46 @@
+@model mtg_app.Models.CardViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BrowseM</title>
+</head>
+<body>
+<div class="d-flex justify-content-center form_container">
+                    <form action="@Url.Action("BrowseM","Store")" method="post">
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="text" name="multiverse" class="form-control input_user" value="" placeholder="MULTIVERSE">
+                        </div>
+                        
+
+                        @if (ViewData["multiverse"]!= null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                <h1>NOT!!</h1>>
+                            </div>
+                        }
+
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <button type="submit" name="button" class="btn login_btn">Iniciar Sesion</button>
+                        </div>
+                    </form>
+           
+                </div>
+
+                <ul>
+                    <li>@Model.Name</li>
+                    <li>@Model.Multiverse_id</li>
+                    <li>@Model.Price</li>
+                    <img src="@Model.Url">
+                </ul>
+
+</body>
+</html>

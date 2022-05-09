@@ -16298,6 +16298,11 @@
   "RootNamespace": "mtg_app",
   "Documents": [
     {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\BrowseP.cshtml",
+      "TargetPath": "Views\\Store\\BrowseP.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\User\\Login.cshtml",
       "TargetPath": "Views\\User\\Login.cshtml",
       "FileKind": "mvc"
@@ -16313,13 +16318,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Shopping\\Index.cshtml",
+      "TargetPath": "Views\\Shopping\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\Browse.cshtml",
-      "TargetPath": "Views\\Store\\Browse.cshtml",
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16330,6 +16335,16 @@
     {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\BrowseR.cshtml",
+      "TargetPath": "Views\\Store\\BrowseR.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\BrowseM.cshtml",
+      "TargetPath": "Views\\Store\\BrowseM.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16358,6 +16373,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Shopping\\Cart.cshtml",
+      "TargetPath": "Views\\Shopping\\Cart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -16365,6 +16385,11 @@
     {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\StoreManager\\Details.cshtml",
       "TargetPath": "Views\\StoreManager\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Shopping\\AddItem.cshtml",
+      "TargetPath": "Views\\Shopping\\AddItem.cshtml",
       "FileKind": "mvc"
     },
     {

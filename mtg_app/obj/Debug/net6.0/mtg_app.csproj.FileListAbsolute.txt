@@ -285,3 +285,4 @@ D:\eric_\Git\magicGit\mtg_app\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
 D:\eric_\Git\magicGit\mtg_app\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 D:\eric_\Git\magicGit\mtg_app\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\eric_\Git\magicGit\mtg_app\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\eric_\Git\magicGit\mtg_app\bin\Debug\net6.0\Microsoft.Web.UI.WebControls.dll

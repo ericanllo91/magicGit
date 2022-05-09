@@ -3257,12 +3257,22 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Web.UI.WebControls/1.0.2.226": {
+        "type": "package",
+        "compile": {
+          "lib/Microsoft.Web.UI.WebControls.dll": {}
+        },
+        "runtime": {
+          "lib/Microsoft.Web.UI.WebControls.dll": {}
+        }
+      },
       "mtg_lib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "HtmlAgilityPack": "1.11.42",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
+          "Newtonsoft.Json": "13.0.1",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL.Design": "1.1.0"
         },
@@ -10073,6 +10083,18 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Web.UI.WebControls/1.0.2.226": {
+      "sha512": "OtqE1o+Xfuv3VJyu8PEOPAqI3oRg2gGppik39074IBXyRqGaTmzbek804RYk2wTpV7h0zQo8lypzyucw44pu+w==",
+      "type": "package",
+      "path": "web.ui.webcontrols/1.0.2.226",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Microsoft.Web.UI.WebControls.dll",
+        "web.ui.webcontrols.1.0.2.226.nupkg.sha512",
+        "web.ui.webcontrols.nuspec"
+      ]
+    },
     "mtg_lib/1.0.0": {
       "type": "project",
       "path": "../mtg_lib/mtg_lib.csproj",
@@ -10086,6 +10108,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.0",
       "Mono.HttpUtility >= 1.0.0.1",
       "System.Data.SqlClient >= 4.8.3",
+      "Web.UI.WebControls >= 1.0.2.226",
       "mtg_lib >= 1.0.0"
     ]
   },
@@ -10151,6 +10174,10 @@
           "System.Data.SqlClient": {
             "target": "Package",
             "version": "[4.8.3, )"
+          },
+          "Web.UI.WebControls": {
+            "target": "Package",
+            "version": "[1.0.2.226, )"
           }
         },
         "imports": [
@@ -10222,6 +10249,16 @@
       "warningLevel": 1,
       "message": "Package 'Mono.HttpUtility 1.0.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Mono.HttpUtility",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Web.UI.WebControls 1.0.2.226' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Web.UI.WebControls",
       "targetGraphs": [
         "net6.0"
       ]

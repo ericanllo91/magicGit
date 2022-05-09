@@ -10,6 +10,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0" />
     <PackageReference Include="Mono.HttpUtility" Version="1.0.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="Web.UI.WebControls" Version="1.0.2.226" />
   </ItemGroup>
 
   <PropertyGroup>

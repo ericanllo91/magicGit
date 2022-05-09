@@ -43,7 +43,7 @@ public class HomeController : Controller
         {
             Cards = cardService
                 .AllCards()
-                .Take(25)
+                .Take(5)
                 .Select(c =>
                     new CardViewModel
                     {
@@ -51,7 +51,7 @@ public class HomeController : Controller
                         Multiverse_id = c.MultiverseId,
                         //Type = GetPrice(c.MultiverseId),                       
                         Url = c.OriginalImageUrl,
-                        Price = new StoreController().GetPrice(c.MultiverseId)
+                        //Price = new StoreController().GetPrice(c.MultiverseId)
                     })
                 .ToList()        
         }; 
