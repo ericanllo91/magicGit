@@ -3,12 +3,17 @@ using System.ComponentModel.DataAnnotations;
 namespace mtg_app.Models
 {
     public class CardViewModel {
+
+        public string? User {get; set;}
+        public int? Qty {get; set;}
+
         public string Name {get; set;}
+
 
         public string? Rarity {get;set;}
         public string? Url {get; set;}
 
-        public string? Price {get;set;}
+        public decimal? Price {get;set;}
         public long? CategoryId {get;set;}
 
         public int? Multiverse_id {get;set;}

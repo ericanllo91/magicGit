@@ -13,18 +13,35 @@
 <body>
     <h1>Item is: @Model.PageTitle</h1>
     <h1>@Model.Rarity</h1>
+     <!-- (UserId, ProductId, ProductName, ProductImageURL, Price, Qty) -> User, Multiverse_id, Name, Url, Price, Qty -->
 
     <h2>NOT WORKING</h2>
     <ul>
         @foreach (var item in Model.Cards)
         {
-
+                  
             @if (item.Price != null){
-                <h1>PRICE!!!</h1>
-                <li>@item.Name</li>
-                <li>@item.Multiverse_id</li>
-                <li>@item.Price</li>
-                <img src="@item.Url">
+                <form action="@Url.Action("AddItem","Shopping", new 
+                { 
+                    User = "Eric", 
+                    Multiverse_id = @item.Multiverse_id,
+                    Name = @item.Name,
+                    Url = @item.Url,
+                    Price = @item.Price
+
+                })" method="post">
+                    <h1>PRICE!!!</h1>
+                    <li>@item.Name</li>
+                    <li>@item.Multiverse_id</li>
+                    <li>@item.Price</li>
+                    <input type="number" id="tentacles" name="qty" min="10" max="100">
+                    <img src="@item.Url">
+
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                            <button type="submit" name="button" class="btn login_btn">BUY</button>
+                    </div>
+                </form>
+                
             }
             
         }

@@ -29,7 +29,7 @@ namespace mtg_app.Controllers
         }
 
         // IN THE SERVICE
-        public string GetPrice(int? id)
+        public decimal GetPrice(int? id)
         {
             // https://mpapi.tcgplayer.com/v2/product/130550/pricepoints
             // 129535
@@ -37,7 +37,8 @@ namespace mtg_app.Controllers
             string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
             dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
             string price = dobj[1]["marketPrice"];
-            return price;
+            //float priceInt = float.Parse(price);
+            return decimal.Parse(price);
         }
 
 /*
@@ -77,7 +78,7 @@ namespace mtg_app.Controllers
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
                             //Rarity = c.RarityCode,
-                            Price = GetPrice(c.MultiverseId),
+                            //Price = GetPrice(c.MultiverseId),
                             Url = c.OriginalImageUrl
                         })
                     .ToList()
@@ -129,6 +130,7 @@ namespace mtg_app.Controllers
 
         public CardsViewModel createPrice()
         {
+            decimal price = decimal.Parse("25.40");
             return new CardsViewModel
             {
                 PageTitle = "Cards",
@@ -136,14 +138,14 @@ namespace mtg_app.Controllers
                 ColumnTitleUnitPrice = "Product price",
                 Cards = cardService
                     .AllCards()
-                    .Take(1000)
+                    .Take(10)
                     .Select(c =>
                         new CardViewModel
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
-                            //Rarity = c.RarityCode,
-                            Price = GetPrice(c.MultiverseId),
+                            Price = price , 
+                            //Price = GetPrice(c.MultiverseId),
                             Url = c.OriginalImageUrl
                         })
                     .ToList()
