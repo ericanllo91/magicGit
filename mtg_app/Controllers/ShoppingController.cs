@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using mtg_app.Models;
+using mtg_app.Controllers;
 using mtg_lib.Library.Services;
 using System.Data.SqlClient;
 using System.Data;
 using System.Security.Cryptography;
 using System.Text;
+using System.Configuration;
+
 
 
 namespace mtg_app.Controllers
@@ -13,24 +16,83 @@ namespace mtg_app.Controllers
     public class ShoppingController : Controller
     {
         
+
         CardService serviceCard = new CardService();
         //REMEMBER TO UPDATE THE DB NAME DEPENDING ON WHICH ONE YOURE USING.
         static string connection = "Server=LAPTOP-ERIC\\SQLEXPRESS;Database=Test;Trusted_Connection=True";
+        
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public ActionResult AddItem()
+        public IActionResult AddItem()
+         // store/browser?rarity=U
+         //U C M R S B
         {
-            //Set value in Session object.
-            //HttpContext.Session.SetString("Usuario", "Eric");
             return View();
         }
 
+        public IActionResult Cart()
+         // store/browser?rarity=U
+         //U C M R S B
+        {
+            return View(createBasket());
+        }
 
+        public CardsViewModel createBasket()
+        {
+            using (SqlConnection conn = new SqlConnection(connection))
+            {
 
+                //retrieve the SQL Server instance version
+                string sql = "SELECT * from CartItems";
+                //define the SqlCommand object
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //open connection
+                conn.Open();
+
+                //execute the SQLCommand
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                //check if there are records
+                if (dr.HasRows)
+                {
+                    List<CardViewModel> listOfCards = new List<CardViewModel>();
+                    while (dr.Read())
+                    {
+                        CardViewModel card = new CardViewModel 
+                        {
+                            Multiverse_id = dr.GetInt32(1),
+                            Url = dr.GetString(3)
+                        };
+                        
+                        listOfCards.Add(card);
+                    }
+
+                    IEnumerable<CardViewModel> enumerable = listOfCards;
+                    return new CardsViewModel
+                        {
+                            PageTitle = "Cards",
+                            ColumnTitleProductName = "Product name",
+                            ColumnTitleUnitPrice = "Product price",
+                            Cards = listOfCards
+                                .Select(c =>
+                                    new CardViewModel
+                                {
+                                    Multiverse_id = c.Multiverse_id,
+                                    Url = c.Url
+                                }).ToList()
+                        };
+                    }
+
+                }
+                return null;
+        
+            }
+        
         [HttpPost]  
         public ActionResult AddItem(CardViewModel cardView, int qty)
         {
@@ -54,7 +116,7 @@ namespace mtg_app.Controllers
                   cmd.ExecuteNonQuery(); 
             }
             
-            return View(Index());
+            return View(AddItem());
         }
 
         /*

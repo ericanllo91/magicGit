@@ -1,4 +1,4 @@
-
+@model mtg_app.Models.CardsViewModel 
 @{
     Layout = null;
 }
@@ -11,5 +11,13 @@
     <title>Cart</title>
 </head>
 <body>
+    <h1>@Model.PageTitle</h1>
+    
+
+ @foreach (var item in Model.Cards)
+        {
+            <li>@item.Multiverse_id</li>
+            <img src="@item.Url">
+        }
 </body>
 </html>

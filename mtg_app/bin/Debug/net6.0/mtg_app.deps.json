@@ -13,6 +13,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.0",
           "Mono.HttpUtility": "1.0.0.1",
           "System.Data.SqlClient": "4.8.3",
+          "Web.UI.WebControls": "1.0.2.226",
           "mtg_lib": "1.0.0"
         },
         "runtime": {
@@ -2424,6 +2425,14 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "Web.UI.WebControls/1.0.2.226": {
+        "runtime": {
+          "lib/Microsoft.Web.UI.WebControls.dll": {
+            "assemblyVersion": "1.0.2.226",
+            "fileVersion": "1.0.2.226"
+          }
+        }
+      },
       "mtg_lib/1.0.0": {
         "dependencies": {
           "HtmlAgilityPack": "1.11.42",
@@ -3766,6 +3775,13 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Web.UI.WebControls/1.0.2.226": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OtqE1o+Xfuv3VJyu8PEOPAqI3oRg2gGppik39074IBXyRqGaTmzbek804RYk2wTpV7h0zQo8lypzyucw44pu+w==",
+      "path": "web.ui.webcontrols/1.0.2.226",
+      "hashPath": "web.ui.webcontrols.1.0.2.226.nupkg.sha512"
     },
     "mtg_lib/1.0.0": {
       "type": "project",
