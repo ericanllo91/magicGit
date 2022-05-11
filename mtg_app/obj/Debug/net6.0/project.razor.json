@@ -16313,6 +16313,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Home\\Test.cshtml",
+      "TargetPath": "Views\\Home\\Test.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\Index.cshtml",
       "TargetPath": "Views\\Store\\Index.cshtml",
       "FileKind": "mvc"

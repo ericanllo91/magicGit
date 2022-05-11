@@ -146,8 +146,8 @@ namespace mtg_app.Controllers
                 ColumnTitleUnitPrice = "Product price",
                 Cards = cardService
                     .AllCards()
-                    .Take(10)
                     .Select(c => 
+
                         new CardViewModel
                         {
                             Name = c.Name,
@@ -156,6 +156,12 @@ namespace mtg_app.Controllers
                             Price = getPrice(c.MultiverseId),
                             Url = c.OriginalImageUrl
                         })
+                        
+                    .Where(cvm => 
+                    {
+                        return cvm.Price > 0;
+                    })
+                    .Take(10)
                     .ToList()
                     
             };

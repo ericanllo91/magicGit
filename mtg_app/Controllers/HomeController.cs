@@ -23,7 +23,29 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        
+        List<String> testlist = new List<string>();
+        testlist.Add("eric");
+
+        string serializedTestString = JsonConvert.SerializeObject(testlist);
+        HttpContext.Session.SetString("user",serializedTestString);
+
+
         return View(CreateTen());
+    }
+
+    public IActionResult Test()
+    {
+        
+        List<String> testlistFromSession = new List<string>();
+        string serializedTestStringFromSession = HttpContext.Session.GetString("user");
+        if(serializedTestStringFromSession != null){
+            testlistFromSession = JsonConvert.DeserializeObject<List<String>>(serializedTestStringFromSession);
+        }
+
+
+        return View(testlistFromSession);
+
     }
 
     public IActionResult Privacy()

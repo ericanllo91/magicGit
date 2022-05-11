@@ -43,6 +43,7 @@ namespace mtg_app.Controllers
         [HttpPost]
         public ActionResult Register(UserViewModel oUsuario)
         {
+            
             bool registrado;
             string mensaje;
 
