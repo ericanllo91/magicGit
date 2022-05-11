@@ -1,4 +1,4 @@
-@model mtg_app.Models.CardsViewModel 
+@model mtg_app.Models.CartsItemViewModel
 @{
     Layout = null;
 }
@@ -11,13 +11,19 @@
     <title>Cart</title>
 </head>
 <body>
-    <h1>@Model.PageTitle</h1>
+    <h1>@Model.ColumnTitleProductName</h1>
+
+    @if (@Model == null) {
+        <h1>EMPTY CART</h1>
+    }
     
 
- @foreach (var item in Model.Cards)
+ @foreach (var item in Model.Carts)
         {
-            <li>@item.Multiverse_id</li>
-            <img src="@item.Url">
+            <li>@item.Price</li>
+            <li>@item.Userid</li>
+            //<img src=@item.Url>
+            //<li>@item.TotalPrice.ToString()</li>
         }
 </body>
 </html>

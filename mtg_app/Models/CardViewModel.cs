@@ -5,7 +5,7 @@ namespace mtg_app.Models
     public class CardViewModel {
 
         public string? User {get; set;}
-        public int? Qty {get; set;}
+        public double? Qty {get; set;}
 
         public string Name {get; set;}
 
@@ -13,13 +13,16 @@ namespace mtg_app.Models
         public string? Rarity {get;set;}
         public string? Url {get; set;}
 
-        public decimal? Price {get;set;}
+        public double? Price {get;set;}
         public long? CategoryId {get;set;}
 
         public int? Multiverse_id {get;set;}
         //public string? Type {get;set;}
 
         public string? Code {get;set;}
+
+        public string? TotalPrice {get;set;}
+
 
         //NEW PART
         public string ConvertedManaCost { get; set; }

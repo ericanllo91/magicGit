@@ -130,7 +130,7 @@ namespace mtg_app.Controllers
 
         public CardsViewModel createPrice()
         {
-            decimal price = decimal.Parse("25.40");
+            double price = double.Parse("25.40");
             return new CardsViewModel
             {
                 PageTitle = "Cards",
@@ -144,7 +144,7 @@ namespace mtg_app.Controllers
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
-                            Price = price , 
+                            Price = price, 
                             //Price = GetPrice(c.MultiverseId),
                             Url = c.OriginalImageUrl
                         })

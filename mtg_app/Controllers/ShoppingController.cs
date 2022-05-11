@@ -18,6 +18,7 @@ namespace mtg_app.Controllers
         
 
         CardService serviceCard = new CardService();
+        ShoppingService serviceShopping = new ShoppingService();
         //REMEMBER TO UPDATE THE DB NAME DEPENDING ON WHICH ONE YOURE USING.
         static string connection = "Server=LAPTOP-ERIC\\SQLEXPRESS;Database=Test;Trusted_Connection=True";
         
@@ -41,6 +42,28 @@ namespace mtg_app.Controllers
             return View(createBasket());
         }
 
+        public CartsItemViewModel createBasket()
+        {
+            return new CartsItemViewModel
+            {
+                PageTitle = "Cart",
+                Carts = serviceShopping
+                    .getAllItems()
+                    .Take(10)
+                    .Select(c =>
+                        new CartItemViewModel
+                        {
+                            Userid = c.Userid,
+                            Price = c.Price
+                        })
+                    .ToList()
+                    
+            };
+        }
+        
+        
+        
+         /*
         public CardsViewModel createBasket()
         {
             using (SqlConnection conn = new SqlConnection(connection))
@@ -63,14 +86,20 @@ namespace mtg_app.Controllers
                     List<CardViewModel> listOfCards = new List<CardViewModel>();
                     while (dr.Read())
                     {
+                        //double pp = Convert.ToDouble(dr.GetFloat(4));
                         CardViewModel card = new CardViewModel 
                         {
                             Multiverse_id = dr.GetInt32(1),
-                            Url = dr.GetString(3)
+                            Name = dr.GetString(2),
+                            Url = dr.GetString(3),
+                            //Price = pp,
+                            //Qty = dr.GetFloat(6),
+                            //TotalPrice = dr.GetFloat(7)
                         };
                         
                         listOfCards.Add(card);
                     }
+                    
 
                     IEnumerable<CardViewModel> enumerable = listOfCards;
                     return new CardsViewModel
@@ -83,15 +112,45 @@ namespace mtg_app.Controllers
                                     new CardViewModel
                                 {
                                     Multiverse_id = c.Multiverse_id,
-                                    Url = c.Url
+                                    Name = c.Name,
+                                    Url = c.Url,
+                                    //Price = c.Price,
+                                    //Qty = c.Qty,
+                                    //TotalPrice = c.TotalPrice
                                 }).ToList()
                         };
                     }
 
                 }
                 return null;
+               
         
             }
+        */
+        [HttpPost]  
+        public ActionResult AddItem(int userId, int productId, string productName, string productImageUrl, double price, double totalPrice, double qty)
+        {
+        //int Userid, int ProductId, string Productname, string productimageurl, double price, double totalprice, double qty
+
+            serviceShopping.addItem(userId,productId, productName, productImageUrl, price, totalPrice, qty);
+            return View(AddItem());
+
+
+        }
+
+
+
+        /*
+        public async Task<IActionResult> Vote(long playerId, int episode)
+        {
+            //var user = await userManager.GetUserAsync(HttpContext.User);
+
+            voteService.VoteOn(playerId, user.Id, episode);
+
+            return Redirect("/");
+
+        }
+        
         
         [HttpPost]  
         public ActionResult AddItem(CardViewModel cardView, int qty)
@@ -119,6 +178,8 @@ namespace mtg_app.Controllers
             return View(AddItem());
         }
 
+        */
+
         /*
 
         public Task<CartItem> DeleteItem(int id)
@@ -137,5 +198,5 @@ namespace mtg_app.Controllers
         */
         
         }
+
     }
-}

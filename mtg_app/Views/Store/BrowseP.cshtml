@@ -19,31 +19,25 @@
     <ul>
         @foreach (var item in Model.Cards)
         {
-                  
-            @if (item.Price != null){
-                <form action="@Url.Action("AddItem","Shopping", new 
-                { 
-                    User = "Eric", 
-                    Multiverse_id = @item.Multiverse_id,
-                    Name = @item.Name,
-                    Url = @item.Url,
-                    Price = @item.Price
-
-                })" method="post">
-                    <h1>PRICE!!!</h1>
+            <h1>PRICE!!!</h1>
                     <li>@item.Name</li>
                     <li>@item.Multiverse_id</li>
                     <li>@item.Price</li>
-                    <input type="number" id="tentacles" name="qty" min="10" max="100">
-                    <img src="@item.Url">
+          <form asp-controller="Shopping"  asp-action="addItem"  method="Post">
+                            
+                            <input name="userId" value="1" class="form-control" type="hidden"/>
 
-                    <div class="d-flex justify-content-center mt-3 login_container">
-                            <button type="submit" name="button" class="btn login_btn">BUY</button>
-                    </div>
-                </form>
+                            <input name="productId" value="@item.Multiverse_id" class="form-control" type="hidden"/>
+                            <input name="productName" value="@item.Name" class="form-control" type="hidden"/>
+                            <input name="productImageUrl" value="@item.Url" class="form-control" type="hidden"/>
+                            <input name="price" value="@item.Price" class="form-control" type="hidden"/>
+                            <input name="totalPrice" value="@item.Price" class="form-control" type="hidden"/>
+                            <input type="number" id="tentacles" name="qty" min="1" max="10">
+                            <input type="submit" value="stem voor @item.Multiverse_id" class="btn btn-primary" />
                 
-            }
-            
+                            
+            </form>
+                
         }
     </ul>
 </body>
