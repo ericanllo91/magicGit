@@ -19,6 +19,9 @@ namespace mtg_app.Controllers
             return View();
         }
 
+        
+
+
         [HttpPost]
         public IActionResult SaveCard(CardViewModel card)
         {

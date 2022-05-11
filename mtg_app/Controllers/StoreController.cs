@@ -1,12 +1,11 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mtg_app.Models;
-using mtg_app.Controllers;
 using mtg_lib.Library.Services;
-using Microsoft.AspNetCore.Mvc;
-using mtg_app.Models;
 using System.Net;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+
 
 
 
@@ -16,41 +15,32 @@ namespace mtg_app.Controllers
     {
 
         CardService cardService = new CardService();
+
+        [Authorize]
         public ActionResult Index()
         {
-            var Raritys = new List<RarityViewModel>
-            {
-                new RarityViewModel{Name="ONE"},
-                new RarityViewModel{Name="TWO"},
-                new RarityViewModel{Name="THREE"},
-                new RarityViewModel{Name="FOUR"}
-            };
-            return View(Raritys);
+            return View();
         }
 
+
         // IN THE SERVICE
-        public decimal GetPrice(int? id)
+        public double getPrice(int? id)
         {
             // https://mpapi.tcgplayer.com/v2/product/130550/pricepoints
-            // 129535
+            // 130550
             WebClient wc = new WebClient();
             string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
             dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
             string price = dobj[1]["marketPrice"];
-            //float priceInt = float.Parse(price);
-            return decimal.Parse(price);
+            if(price == null)
+            {
+                return 0;
+            } else{
+                double priceDouble = double.Parse(price);
+                return priceDouble;
+            }
+            
         }
-
-/*
-        public IActionResult BrowseR(string rarity)
-         // MULTIVERSE
-         // /store/browseM
-        {
-            CardsViewModel card = createRarity("U");
-            return View(card);
-        }
-        */
-
 
         public IActionResult BrowseR(string rarity)
          // store/browser?rarity=U
@@ -71,16 +61,20 @@ namespace mtg_app.Controllers
                 ColumnTitleUnitPrice = "Product price",
                 Cards = cardService
                     .getCardByRarity(rarity)
-                    .Take(10)
+                    
                     .Select(c =>
                         new CardViewModel
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
-                            //Rarity = c.RarityCode,
-                            //Price = GetPrice(c.MultiverseId),
+                            Price = getPrice(c.MultiverseId) ,
                             Url = c.OriginalImageUrl
                         })
+                    .Where(cvm => 
+                    {
+                        return cvm.Price > 0;
+                    })
+                    .Take(10)
                     .ToList()
             };
         }
@@ -111,7 +105,7 @@ namespace mtg_app.Controllers
                             Name = cardService.GetCardById(multiverse).Name,
                             Multiverse_id = cardService.GetCardById(multiverse).MultiverseId,
                             //Rarity = c.RarityCode,
-                            //Price = GetPrice(c.MultiverseId),
+                            Price = getPrice(cardService.GetCardById(multiverse).MultiverseId),
                             Url = cardService.GetCardById(multiverse).OriginalImageUrl
                         };
             //return View(Cards);
@@ -130,7 +124,6 @@ namespace mtg_app.Controllers
 
         public CardsViewModel createPrice()
         {
-            decimal price = decimal.Parse("25.40");
             return new CardsViewModel
             {
                 PageTitle = "Cards",
@@ -138,18 +131,25 @@ namespace mtg_app.Controllers
                 ColumnTitleUnitPrice = "Product price",
                 Cards = cardService
                     .AllCards()
-                    .Take(10)
-                    .Select(c =>
+                    .Select(c => 
+
                         new CardViewModel
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
-                            Price = price , 
-                            //Price = GetPrice(c.MultiverseId),
+                            Price = 25, 
+                            //Price = getPrice(c.MultiverseId),
                             Url = c.OriginalImageUrl
-                        })
+                        })    
+                    .Where(cvm => 
+                    {
+                        return cvm.Price > 0;
+                    })
+                    .OrderBy(cvm => 
+                        cvm.Price
+                    )
+                    .Take(10)
                     .ToList()
-                    
             };
             
         }
@@ -160,5 +160,7 @@ namespace mtg_app.Controllers
             return View();
 
         }
+
+        
     }
 }

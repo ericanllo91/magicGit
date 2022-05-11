@@ -1,6 +1,6 @@
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
 }
 
 <!DOCTYPE html>
@@ -11,10 +11,11 @@
     <title>Index</title>
 </head>
 <body>
-<h2>HOLA</h2>
+<h2>Would you like to continue shopping or visit your basket?</h2>
 <ul>
         <!-- Name to show in HTML"cesta de la compra" - Method - FROM CONTROLLER -->
-        <li>@Html.ActionLink("CART", "Cart", "Shopping")</li>
+        <li>@Html.ActionLink("Basket", "Cart", "Shopping")</li>
+        <li>@Html.ActionLink("Shopping", "Index", "Store")</li>
 </ul>
 
 </body>

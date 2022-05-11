@@ -1,7 +1,10 @@
-@model mtg_app.Models.CardsViewModel 
+@model mtg_app.Models.CartsItemViewModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
 }
+
+
+
 
 <!DOCTYPE html>
 
@@ -11,13 +14,56 @@
     <title>Cart</title>
 </head>
 <body>
-    <h1>@Model.PageTitle</h1>
     
 
- @foreach (var item in Model.Cards)
+    @if (@Model.PageTitle == null) {
+        <h1>Your card is empty</h1>
+
+    }
+
+    
+<div style="display:flex;flex-wrap: wrap;align-content: center; flex-direction: column;">
+<ul style="display: flex;flex-wrap: wrap;">
+
+ 
+    @foreach (var item in Model.Carts)
         {
-            <li>@item.Multiverse_id</li>
-            <img src="@item.Url">
-        }
+           
+
+            <div style="border: dashed;">
+            <div style="display:inline-block; margin:50px">
+            <h2>@item.Productname -- Product Name</h2>
+            <h2>@item.Price $</h2>
+            <h3>@item.Qty</h3>
+            <img src=@item.Productimageurl>
+            </div>
+            <form asp-controller="Shopping"  asp-action="deleteItem"  method="Post" style="text-align: center;">
+                
+                <input name="userId" value="1" class="form-control" type="hidden"/>
+
+                <input name="productId" value="@item.Productid" class="form-control" type="hidden"/>
+                <input name="productName" value="@item.Productname" class="form-control" type="hidden"/>
+                <input name="productImageUrl" value="@item.Productimageurl" class="form-control" type="hidden"/>
+                <input name="price" value="@item.Price" class="form-control" type="hidden"/>
+                <input name="totalPrice" value="@item.Totalprice" class="form-control" type="hidden"/>
+                <input name="qty" value="@item.Qty" class="form-control" type="hidden"/>
+
+                <input type="submit" value="x" class="btn btn-primary" />
+            </form>
+            </div>
+
+        };
+
+        <form asp-controller="Shopping"  asp-action="Index"  method="Post" style="text-align: center;">
+            <input type="submit" value="PAYMENT" class="btn btn-primary" />
+        </form>
+    </ul>
+</div>
+
+
+
+
+
+
 </body>
 </html>

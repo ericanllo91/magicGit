@@ -17,129 +17,146 @@ namespace mtg_app.Controllers
 {
     public class UserController : Controller
     {
-        CardService serviceCard = new CardService();
-        static string connection = "Server=LAPTOP-ERIC\\SQLEXPRESS;Database=Test;Trusted_Connection=True";
+        CardService cardService = new CardService();
 
-        public IActionResult SaveName(string name)
+
+        public CardsViewModel createCards()
         {
-        //HttpContext.Session.SetString("Name", name);
-        return RedirectToAction("Index");
+            return new CardsViewModel
+            {
+                PageTitle = "Cards",
+                ColumnTitleProductName = "Product name",
+                ColumnTitleUnitPrice = "Product price",
+                Cards = cardService
+                    .AllCards()
+                    .Select(c => 
+
+                        new CardViewModel
+                        {
+                            Name = c.Name,
+                            Multiverse_id = c.MultiverseId,
+                            Url = c.OriginalImageUrl
+                        })
+                    .Take(1000)
+                    .ToList()
+                    
+            };    
         }
 
-        public ActionResult Login()
+        
+
+        public IActionResult Login()
         {
-            //Set value in Session object.
-            //HttpContext.Session.SetString("Usuario", "Eric");
-            return View();
+            
+            return View(createCards());
+        }
+
+        public IActionResult BrowseR(string rarity)
+         // store/browser?rarity=U
+         //U C M R S B
+        {
+            return View(createRarity(rarity));
+        }
+
+        public CardsViewModel createRarity(string rarity)
+        {
+            return new CardsViewModel
+            {
+                PageTitle = "Cards",
+                Rarity = rarity,
+                ColumnTitleProductName = "Product name",
+                ColumnTitleUnitPrice = "Product price",
+                Cards = cardService
+                    .getCardByRarity(rarity)
+                    
+                    .Select(c =>
+                        new CardViewModel
+                        {
+                            Name = c.Name,
+                            Multiverse_id = c.MultiverseId,
+                            Url = c.OriginalImageUrl
+                        })
+                    .Take(100)
+                    .ToList()
+            };
         }
 
 
-         public ActionResult Register()
-        {
-            return View();
-        }
 
+        public IActionResult BrowseM()
+         // MULTIVERSE
+         // /store/browseM
+        {
+            CardViewModel card = createMultiverse(1);
+            return View(card);
+        }
+    
 
         [HttpPost]
-        public ActionResult Register(UserViewModel oUsuario)
+        public IActionResult BrowseM(int multiverse)
+         // MULTIVERSE
+         // /store/browseM?multiverse=130550
         {
-            bool registrado;
-            string mensaje;
-
-            if (oUsuario.Password != oUsuario.Confirm)
-            {
-                ViewData["Mensaje"] = "Las contraseñas no coinciden";
-                return View();
-            }
-
-            using (SqlConnection cn = new SqlConnection(connection))
-            {
-                //regristrar mal escrito
-                SqlCommand cmd = new SqlCommand("sp_RegistrarUsuario", cn);
-                cmd.Parameters.AddWithValue("Correo", oUsuario.Username);
-                cmd.Parameters.AddWithValue("Clave", oUsuario.Password);
-                cmd.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                cmd.Parameters.Add("Mensaje", SqlDbType.VarChar,100).Direction = ParameterDirection.Output;
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cn.Open();
-
-                cmd.ExecuteNonQuery();
-
-                registrado = Convert.ToBoolean(cmd.Parameters["Registrado"].Value);
-                mensaje = cmd.Parameters["Mensaje"].Value.ToString();
-
-
-            }
-
-            ViewData["Mensaje"] = mensaje;
-
-            if (registrado)
-            {
-                return RedirectToAction("Login", "User");
-            }
-            else {
-                return View();
-            }
-
+            return View(createMultiverse(multiverse));
         }
 
-        [HttpPost]
-        public ActionResult Login(UserViewModel oUsuario)
+        public CardViewModel createMultiverse(int multiverse)
         {
-            //oUsuario.Password = ConvertirSha256(oUsuario.Password);
-
-
-            using (SqlConnection cn = new SqlConnection(connection))
-            {
-
-                SqlCommand cmd = new SqlCommand("sp_ValidarUsuario", cn);
-                cmd.Parameters.AddWithValue("Correo", oUsuario.Username);
-                cmd.Parameters.AddWithValue("Clave", oUsuario.Password);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cn.Open();
-
-                oUsuario.Id = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-
-            }
-
-            if (oUsuario.Id != 0)
-            {
-                //string name = HttpContext.Session.GetString("Name");
-                
-                //oUsuario.Username = name;
-
-                //Session["usuario"] = oUsuario;
-                return RedirectToAction("Index", "Home");
-            }
-            else {
-                ViewData["Mensaje"] = "usuario no encontrado";
-                return View();
-            }
-
-           
+            return new CardViewModel
+                        {
+                            Name = cardService.GetCardById(multiverse).Name,
+                            Multiverse_id = cardService.GetCardById(multiverse).MultiverseId,
+                            Url = cardService.GetCardById(multiverse).OriginalImageUrl
+                        };
         }
 
 
 
-        public static string ConvertirSha256(string texto)
+        public IActionResult BrowseP()
+         // store/browser?rarity=U
+         //U C M R S B
         {
-            //using System.Text;
-            //USAR LA REFERENCIA DE "System.Security.Cryptography"
-
-            StringBuilder Sb = new StringBuilder();
-            using (SHA256 hash = SHA256Managed.Create())
-            {
-                Encoding enc = Encoding.UTF8;
-                byte[] result = hash.ComputeHash(enc.GetBytes(texto));
-
-                foreach (byte b in result)
-                    Sb.Append(b.ToString("x2"));
-            }
-
-            return Sb.ToString();
+            return View(createPrice());
         }
+
+
+        public CardsViewModel createPrice()
+        {
+            //double price = double.Parse("25.40");
+
+            return new CardsViewModel
+            {
+                PageTitle = "Cards",
+                ColumnTitleProductName = "Product name",
+                ColumnTitleUnitPrice = "Product price",
+                Cards = cardService
+                    .AllCards()
+                    .Select(c => 
+                        new CardViewModel
+                        {
+                            Name = c.Name,
+                            Multiverse_id = c.MultiverseId,
+                            Url = c.OriginalImageUrl
+                        })    
+                    .Take(1000)
+                    .OrderBy(
+                        cvm => cvm.Multiverse_id
+                    )
+                    .ToList()
+                    
+                    
+            };
+            
+        }
+
+        public ActionResult Details()
+        {
+ 
+            return View();
+
+        }
+
+        
     
     }
 }

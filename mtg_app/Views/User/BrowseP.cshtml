@@ -1,0 +1,30 @@
+@model mtg_app.Models.CardsViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BrowseP</title>
+</head>
+<body>
+    <h1>You can look at all the cards here</h1>
+     <!-- (UserId, ProductId, ProductName, ProductImageURL, Price, Qty) -> User, Multiverse_id, Name, Url, Price, Qty -->
+
+    <ul>
+        @foreach (var item in Model.Cards)
+        {
+            <div style="display:inline-block; margin:50px">
+                <h2>@item.Name</h2>
+                <p>Multiverse number => @item.Multiverse_id</p>
+                <p>@item.Price</p>
+                <img src=@item.Url>
+            </div>
+
+        }
+    </ul>
+</body>
+</html>

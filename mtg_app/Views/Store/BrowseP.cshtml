@@ -1,6 +1,6 @@
 @model mtg_app.Models.CardsViewModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
 }
 
 <!DOCTYPE html>
@@ -11,40 +11,37 @@
     <title>BrowseP</title>
 </head>
 <body>
-    <h1>Item is: @Model.PageTitle</h1>
-    <h1>@Model.Rarity</h1>
+    <h1>Here the cards are sorted by PRICE</h1>
      <!-- (UserId, ProductId, ProductName, ProductImageURL, Price, Qty) -> User, Multiverse_id, Name, Url, Price, Qty -->
 
-    <h2>NOT WORKING</h2>
-    <ul>
+
+    <div style="display:flex;flex-wrap: wrap;align-content: center; flex-direction: column;">
+    
+    <ul style="display: flex;flex-wrap: wrap;">
         @foreach (var item in Model.Cards)
         {
-                  
-            @if (item.Price != null){
-                <form action="@Url.Action("AddItem","Shopping", new 
-                { 
-                    User = "Eric", 
-                    Multiverse_id = @item.Multiverse_id,
-                    Name = @item.Name,
-                    Url = @item.Url,
-                    Price = @item.Price
-
-                })" method="post">
-                    <h1>PRICE!!!</h1>
-                    <li>@item.Name</li>
-                    <li>@item.Multiverse_id</li>
-                    <li>@item.Price</li>
-                    <input type="number" id="tentacles" name="qty" min="10" max="100">
-                    <img src="@item.Url">
-
-                    <div class="d-flex justify-content-center mt-3 login_container">
-                            <button type="submit" name="button" class="btn login_btn">BUY</button>
-                    </div>
-                </form>
+            <div style="border: dashed;">
+            <div style="display:inline-block; margin:50px">
+                <h2>@item.Name</h2>
+                <p>Multiverse number => @item.Multiverse_id</p>
+                <p>@item.Price</p>
+                <img src=@item.Url>
+            </div>
+            <form asp-controller="Shopping"  asp-action="addItem"  method="Post" style="text-align: center;">
+                            
+                            <input name="userId" value="1" class="form-control" type="hidden"/>
+                            <input name="productId" value="@item.Multiverse_id" class="form-control" type="hidden"/>
+                            <input name="productName" value="@item.Name" class="form-control" type="hidden"/>
+                            <input name="productImageUrl" value="@item.Url" class="form-control" type="hidden"/>
+                            <input name="price" value="@item.Price" class="form-control" type="hidden"/>
+                            <input name="totalPrice" value="@item.Price" class="form-control" type="hidden"/>
+                            <input type="number" id="tentacles" name="qty" min="1" max="10">
+                            <input type="submit" value="BUY" class="btn btn-primary" />          
+            </form>
+            </div>
                 
-            }
-            
         }
     </ul>
+</div>
 </body>
 </html>

@@ -18,124 +18,86 @@ namespace mtg_app.Controllers
         
 
         CardService serviceCard = new CardService();
-        //REMEMBER TO UPDATE THE DB NAME DEPENDING ON WHICH ONE YOURE USING.
-        static string connection = "Server=LAPTOP-ERIC\\SQLEXPRESS;Database=Test;Trusted_Connection=True";
-        
+        ShoppingService serviceShopping = new ShoppingService();
+        //REMEMBER TO UPDATE THE DB NAME DEPENDING ON WHICH ONE YOURE USING.        
 
         public IActionResult Index()
         {
-            return View();
+            return View(updateCarrito());
         }
 
         public IActionResult AddItem()
-         // store/browser?rarity=U
-         //U C M R S B
         {
             return View();
         }
 
         public IActionResult Cart()
-         // store/browser?rarity=U
-         //U C M R S B
         {
             return View(createBasket());
         }
+        
 
-        public CardsViewModel createBasket()
+        public CartsItemViewModel createBasket()
         {
-            using (SqlConnection conn = new SqlConnection(connection))
+            return new CartsItemViewModel
             {
-
-                //retrieve the SQL Server instance version
-                string sql = "SELECT * from CartItems";
-                //define the SqlCommand object
-                SqlCommand cmd = new SqlCommand(sql, conn);
-
-                //open connection
-                conn.Open();
-
-                //execute the SQLCommand
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                //check if there are records
-                if (dr.HasRows)
-                {
-                    List<CardViewModel> listOfCards = new List<CardViewModel>();
-                    while (dr.Read())
-                    {
-                        CardViewModel card = new CardViewModel 
+                Number = 0,
+                PageTitle = "Cart",
+                Carts = serviceShopping
+                    .getAllItems()
+                    .Select(c =>
+                        new CartItemViewModel
                         {
-                            Multiverse_id = dr.GetInt32(1),
-                            Url = dr.GetString(3)
-                        };
-                        
-                        listOfCards.Add(card);
-                    }
+                            Userid = c.Userid,
+                            Productid = c.Productid,
+                            Productname = c.Productname,
+                            Productimageurl = c.Productimageurl,
+                            Price = c.Price,
+                            Totalprice = c.Totalprice,
+                            Qty = c.Qty
+                        })   
+                    .ToList()         
+            };
+        }
 
-                    IEnumerable<CardViewModel> enumerable = listOfCards;
-                    return new CardsViewModel
-                        {
-                            PageTitle = "Cards",
-                            ColumnTitleProductName = "Product name",
-                            ColumnTitleUnitPrice = "Product price",
-                            Cards = listOfCards
-                                .Select(c =>
-                                    new CardViewModel
-                                {
-                                    Multiverse_id = c.Multiverse_id,
-                                    Url = c.Url
-                                }).ToList()
-                        };
-                    }
+        public List<CartItemViewModel> updateCarrito()
+        {
+            List<double?> tots = new List<double?>();
+            CartsItemViewModel carrito = createBasket();
+            //list de carritos
+            var car = carrito.Carts;
+            car.ForEach(c => c.Price = (c.Price*c.Qty));
+            car.ForEach(c => tots.Add(c.Price));
+            car.ForEach(c => c.Totalprice = tots.Sum());
+            return car;
+        }
 
-                }
-                return null;
+
+ 
         
-            }
-        
+
         [HttpPost]  
-        public ActionResult AddItem(CardViewModel cardView, int qty)
+        public ActionResult AddItem(int userId, int productId, string productName, string productImageUrl, double price, double totalPrice, int qty)
         {
+        //int Userid, int ProductId, string Productname, string productimageurl, double price, double totalprice, double qty
 
-            using (SqlConnection cn = new SqlConnection(connection))
-            {
-                cn.Open();
-                string sql =  "INSERT INTO CartItems (UserId, ProductId, ProductName, ProductImageURL, Price, Qty, TotalPrice) VALUES(@param1,@param2,@param3,@param4,@param5,@param6,@param7)";
-                using(SqlCommand cmd = new SqlCommand(sql,cn)) 
-            {
-                  cmd.Parameters.Add("@param1", SqlDbType.Int).Value = 1;  
-                  cmd.Parameters.Add("@param2", SqlDbType.Int).Value = cardView.Multiverse_id;
-                  cmd.Parameters.Add("@param3", SqlDbType.VarChar, 255).Value = cardView.Name;
-                  cmd.Parameters.Add("@param4", SqlDbType.VarChar, 255).Value = cardView.Url;
-                  cmd.Parameters.Add("@param5", SqlDbType.Float).Value = cardView.Price;
-                  cmd.Parameters.Add("@param6", SqlDbType.Float).Value = qty;
-                  cmd.Parameters.Add("@param7", SqlDbType.Float).Value = cardView.Price * cardView.Qty;
-                
-
-                  cmd.CommandType = CommandType.Text;
-                  cmd.ExecuteNonQuery(); 
-            }
-            
+            serviceShopping.addItem(userId,productId, productName, productImageUrl, price, totalPrice, qty);
             return View(AddItem());
         }
 
-        /*
 
-        public Task<CartItem> DeleteItem(int id)
+
+        [HttpPost] 
+        public ActionResult deleteItem(int userId, int productId, string productName, string productImageUrl, double price, double totalPrice, int qty)
         {
-            return null;
-        }
-        public Task<CartItem> GetItem(int id)
-        {
-            return null;
-        }
-        public Task<IEnumerable<CartItem>> GetItems(ShoppingAddViewModel shoppingAddViewModel)
-        {
-            return null;
+        //int Userid, int ProductId, string Productname, string productimageurl, double price, double totalprice, double qty
+
+            serviceShopping.deleteItem(userId,productId, productName, productImageUrl, price, totalPrice, qty);
+            return View(AddItem());
+
+
         }
 
-        */
-        
-        }
+
     }
 }
