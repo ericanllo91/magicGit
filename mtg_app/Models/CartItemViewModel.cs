@@ -14,7 +14,7 @@ namespace mtg_app.Models
         public string? Productimageurl { get; set; }
         public double? Price { get; set; }
         public double? Totalprice { get; set; }
-        public double? Qty { get; set; }
+        public int? Qty { get; set; }
         
     }
 }

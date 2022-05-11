@@ -1,0 +1,25 @@
+@model IEnumerable<mtg_app.Models.RarityViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <h1>Choose the level of Rarity</h1>
+    <ul>
+    
+        <li>@Html.ActionLink("Uncommon", "BrowseR", "User", new {rarity = "U"})</li>
+        <li>@Html.ActionLink("Common", "BrowseR", "User", new {rarity = "C"})</li>
+        <li>@Html.ActionLink("Myrhic", "BrowseR", "User", new {rarity = "M"})</li>
+        <li>@Html.ActionLink("Rare", "BrowseR", "User", new {rarity = "R"})</li>
+        <li>@Html.ActionLink("Special", "BrowseR", "User", new {rarity = "S"})</li>
+        <li>@Html.ActionLink("Bonus", "BrowseR", "User", new {rarity = "B"})</li>
+    </ul>
+</body>
+</html>

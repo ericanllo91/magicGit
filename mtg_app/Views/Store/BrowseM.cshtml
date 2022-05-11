@@ -1,6 +1,6 @@
 @model mtg_app.Models.CardViewModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
 }
 
 <!DOCTYPE html>
@@ -11,36 +11,33 @@
     <title>BrowseM</title>
 </head>
 <body>
+<div style="display:flex;flex-wrap: wrap;align-content: center; flex-direction: column;">
 <div class="d-flex justify-content-center form_container">
                     <form action="@Url.Action("BrowseM","Store")" method="post">
-                        <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                            </div>
-                            <input type="text" name="multiverse" class="form-control input_user" value="" placeholder="MULTIVERSE">
-                        </div>
-                        
-
-                        @if (ViewData["multiverse"]!= null)
-                        {
-                            <div class="alert alert-danger" role="alert">
-                                <h1>NOT!!</h1>>
-                            </div>
-                        }
-
-                        <div class="d-flex justify-content-center mt-3 login_container">
-                            <button type="submit" name="button" class="btn login_btn">Iniciar Sesion</button>
-                        </div>
+                        <input type="number" name="multiverse" class="form-control input_user" value="" min="1" max="16500" placeholder="MULTIVERSE">
+                        <button type="submit" name="button" class="btn login_btn" style="width: 100%; border:dashed">SEARCH</button>
                     </form>
            
                 </div>
+                <div style="display:inline-block; margin:20px">
+                <h2>@Model.Name</h2>
+                <p>Multiverse number => @Model.Multiverse_id</p>
+                <p>@Model.Price</p>
+                <img src=@Model.Url>
+                </div>
 
-                <ul>
-                    <li>@Model.Name</li>
-                    <li>@Model.Multiverse_id</li>
-                    <li>@Model.Price</li>
-                    <img src="@Model.Url">
-                </ul>
+                <form asp-controller="Shopping"  asp-action="addItem"  method="Post" style="display: flex; flex-direction: column">
+                            
+                            <input name="userId" value="1" class="form-control" type="hidden"/>
 
+                            <input name="productId" value="@Model.Multiverse_id" class="form-control" type="hidden"/>
+                            <input name="productName" value="@Model.Name" class="form-control" type="hidden"/>
+                            <input name="productImageUrl" value="@Model.Url" class="form-control" type="hidden"/>
+                            <input name="price" value="@Model.Price" class="form-control" type="hidden"/>
+                            <input name="totalPrice" value="@Model.Price" class="form-control" type="hidden"/>
+                            <input type="number" id="tentacles" name="qty" min="1" max="10">
+                            <input type="submit" value="BUY" class="btn btn-primary" />          
+                </form>
+</div>
 </body>
 </html>

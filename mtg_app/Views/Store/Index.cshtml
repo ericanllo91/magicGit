@@ -1,7 +1,5 @@
-
-
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
 }
 
 <!DOCTYPE html>
@@ -12,18 +10,27 @@
     <title>Details</title>
 </head>
 <body>
-    <h1>Item is:</h1>
+            <!-- Name to show in HTML - Method - FROM CONTROLLER -->
+<h1 style="margin-bottom: 50px;">Would you like to buy or browse cards?</h1>
+  <table style="width:100%">
+  <tr style="color: Red">
+    <td><h1>SHOP</h1></td>
+    <td><h1>BROWSE</h1></td>
+  </tr>
+  <tr>
+    <td><h2>@Html.ActionLink("Rarity", "Details", "Store")</h2></td>
+    <td><h2>@Html.ActionLink("Rarity", "Details", "User")</h2></td>
+  </tr>
+  <tr>
+    <td><h2>@Html.ActionLink("Id", "BrowseM", "Store")</h2></td>
+    <td><h2>@Html.ActionLink("Id", "BrowseM", "User")</h2></td>
+  </tr>
+  <tr>
+    <td><h2>@Html.ActionLink("Price", "BrowseP", "Store")</h2></td>
+    <td><h2>@Html.ActionLink("ALL CARDS", "BrowseP", "User")</h2></td>
+  </tr>
 
-    </p>
-    <ul>
-        <!-- Name to show in HTML - Method - FROM CONTROLLER -->
-        <li>@Html.ActionLink("Rarity", "Details", "Store")</li>
-        <li>@Html.ActionLink("Id", "BrowseM", "Store")</li>
-        <li>@Html.ActionLink("Price", "BrowseP", "Store")</li>
+</table>
 
-
-
-
-    </ul>
 </body>
 </html>

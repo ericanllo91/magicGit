@@ -1,12 +1,11 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using mtg_app.Models;
-using mtg_app.Controllers;
 using mtg_lib.Library.Services;
-using Microsoft.AspNetCore.Mvc;
-using mtg_app.Models;
 using System.Net;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+
 
 
 
@@ -16,17 +15,13 @@ namespace mtg_app.Controllers
     {
 
         CardService cardService = new CardService();
+
+        [Authorize]
         public ActionResult Index()
         {
-            var Raritys = new List<RarityViewModel>
-            {
-                new RarityViewModel{Name="ONE"},
-                new RarityViewModel{Name="TWO"},
-                new RarityViewModel{Name="THREE"},
-                new RarityViewModel{Name="FOUR"}
-            };
-            return View(Raritys);
+            return View();
         }
+
 
         // IN THE SERVICE
         public double getPrice(int? id)
@@ -47,17 +42,6 @@ namespace mtg_app.Controllers
             
         }
 
-/*
-        public IActionResult BrowseR(string rarity)
-         // MULTIVERSE
-         // /store/browseM
-        {
-            CardsViewModel card = createRarity("U");
-            return View(card);
-        }
-        */
-
-
         public IActionResult BrowseR(string rarity)
          // store/browser?rarity=U
          //U C M R S B
@@ -77,17 +61,20 @@ namespace mtg_app.Controllers
                 ColumnTitleUnitPrice = "Product price",
                 Cards = cardService
                     .getCardByRarity(rarity)
-                    .Take(250)
+                    
                     .Select(c =>
                         new CardViewModel
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
-                            //Rarity = c.RarityCode, 
-                            // 
                             Price = getPrice(c.MultiverseId) ,
                             Url = c.OriginalImageUrl
                         })
+                    .Where(cvm => 
+                    {
+                        return cvm.Price > 0;
+                    })
+                    .Take(10)
                     .ToList()
             };
         }
@@ -137,8 +124,6 @@ namespace mtg_app.Controllers
 
         public CardsViewModel createPrice()
         {
-            //double price = double.Parse("25.40");
-
             return new CardsViewModel
             {
                 PageTitle = "Cards",
@@ -152,18 +137,19 @@ namespace mtg_app.Controllers
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
-                            // Price = price, 
-                            Price = getPrice(c.MultiverseId),
+                            Price = 25, 
+                            //Price = getPrice(c.MultiverseId),
                             Url = c.OriginalImageUrl
-                        })
-                        
+                        })    
                     .Where(cvm => 
                     {
                         return cvm.Price > 0;
                     })
+                    .OrderBy(cvm => 
+                        cvm.Price
+                    )
                     .Take(10)
                     .ToList()
-                    
             };
             
         }
@@ -174,5 +160,7 @@ namespace mtg_app.Controllers
             return View();
 
         }
+
+        
     }
 }

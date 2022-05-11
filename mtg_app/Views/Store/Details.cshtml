@@ -1,6 +1,6 @@
 @model IEnumerable<mtg_app.Models.RarityViewModel>
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
 }
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <title>Details</title>
 </head>
 <body>
-    <h1>Item ARE</h1>
+    <h1>Choose the level of Rarity</h1>
     <ul>
     
         <li>@Html.ActionLink("Uncommon", "BrowseR", "Store", new {rarity = "U"})</li>

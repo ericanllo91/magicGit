@@ -16303,6 +16303,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\User\\Login.cshtml",
       "TargetPath": "Views\\User\\Login.cshtml",
       "FileKind": "mvc"
@@ -16313,13 +16318,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Home\\Test.cshtml",
-      "TargetPath": "Views\\Home\\Test.cshtml",
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\Index.cshtml",
+      "TargetPath": "Views\\Store\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\Index.cshtml",
-      "TargetPath": "Views\\Store\\Index.cshtml",
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16350,6 +16355,11 @@
     {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Store\\BrowseM.cshtml",
       "TargetPath": "Views\\Store\\BrowseM.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\User\\BrowseR.cshtml",
+      "TargetPath": "Views\\User\\BrowseR.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16393,6 +16403,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\User\\BrowseM.cshtml",
+      "TargetPath": "Views\\User\\BrowseM.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Shopping\\AddItem.cshtml",
       "TargetPath": "Views\\Shopping\\AddItem.cshtml",
       "FileKind": "mvc"
@@ -16408,13 +16423,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\User\\BrowseP.cshtml",
+      "TargetPath": "Views\\User\\BrowseP.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\User\\Register.cshtml",
-      "TargetPath": "Views\\User\\Register.cshtml",
+      "FilePath": "d:\\eric_\\Git\\magicGit\\mtg_app\\Views\\User\\Details.cshtml",
+      "TargetPath": "Views\\User\\Details.cshtml",
       "FileKind": "mvc"
     }
   ],

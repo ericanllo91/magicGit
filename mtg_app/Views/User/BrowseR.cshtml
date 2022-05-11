@@ -1,0 +1,28 @@
+@model mtg_app.Models.CardsViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <h1>You picked => @Model.Rarity</h1>
+    
+    <ul>
+        @foreach (var item in Model.Cards)
+        {
+            <div style="display:inline-block; margin:50px">
+                <h2>@item.Name</h2>
+                <p>Multiverse number => @item.Multiverse_id</p>
+                <img src=@item.Url>
+            </div>
+
+        }
+    </ul>
+</body>
+</html>

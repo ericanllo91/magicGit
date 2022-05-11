@@ -1,6 +1,6 @@
-
+@model List<CartItemViewModel>
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
 }
 
 <!DOCTYPE html>
@@ -11,6 +11,22 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>HELLO SHOPPING</h1>
+    <h1> Your bill </h1>
+    @foreach (var item in Model)
+    {
+        <p>@item.Productname --- @item.Productid</p>
+        <p>@item.Qty cards of this type</p>
+        <h3>@item.Price $</h3>
+        <img src=@item.Productimageurl>
+        <h1>----------------</h1>
+
+        
+    }
+    <h1>The total to pay is = @Model[0].Totalprice $</h1>
+    <form asp-controller="Shopping"  asp-action="Index"  method="Post" style="text-align: center;">
+        <input type="submit" value="Confirm payment" class="btn btn-primary" />
+    </form>
+
+
 </body>
 </html>
