@@ -18,10 +18,10 @@
     <ul>
         @foreach (var item in Model.Cards)
         {
-            <h1>@item.Name</h1>
-            <h2>@item.Price</h2>
-            <h3>@item.Multiverse_id</h3>
-            @if (item.Price != null){
+            //<h1>@item.Name</h1>
+            //<h2>@item.Price</h2>
+            //<h3>@item.Multiverse_id</h3>
+            @if (item.Price > 0){
                 <li>@item.Name</li>
                 <li>@item.Multiverse_id</li>
                 <li>@item.Price</li>

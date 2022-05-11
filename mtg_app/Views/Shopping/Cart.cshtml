@@ -20,10 +20,30 @@
 
  @foreach (var item in Model.Carts)
         {
+            <h1>@item.Productid</h1>
             <li>@item.Price</li>
             <li>@item.Userid</li>
+            <li>@item.Productimageurl</li>
+            <h1>@item.Productname</h1>
+            <img src=@item.Productimageurl>
             //<img src=@item.Url>
             //<li>@item.TotalPrice.ToString()</li>
+            <form asp-controller="Shopping"  asp-action="deleteItem"  method="Post">
+                
+                <input name="userId" value="1" class="form-control" type="hidden"/>
+
+                <input name="productId" value="@item.Productid" class="form-control" type="hidden"/>
+                <input name="productName" value="@item.Productname" class="form-control" type="hidden"/>
+                <input name="productImageUrl" value="@item.Productimageurl" class="form-control" type="hidden"/>
+                <input name="price" value="@item.Price" class="form-control" type="hidden"/>
+                <input name="totalPrice" value="@item.Totalprice" class="form-control" type="hidden"/>
+                <input name="qty" value="@item.Qty" class="form-control" type="hidden"/>
+
+                <input type="submit" value="x" class="btn btn-primary" />
+            </form>
+
         }
+
+        <h1></h1>
 </body>
 </html>

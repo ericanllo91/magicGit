@@ -29,16 +29,22 @@ namespace mtg_app.Controllers
         }
 
         // IN THE SERVICE
-        public decimal GetPrice(int? id)
+        public double getPrice(int? id)
         {
             // https://mpapi.tcgplayer.com/v2/product/130550/pricepoints
-            // 129535
+            // 130550
             WebClient wc = new WebClient();
             string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
             dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
             string price = dobj[1]["marketPrice"];
-            //float priceInt = float.Parse(price);
-            return decimal.Parse(price);
+            if(price == null)
+            {
+                return 0;
+            } else{
+                double priceDouble = double.Parse(price);
+                return priceDouble;
+            }
+            
         }
 
 /*
@@ -71,14 +77,15 @@ namespace mtg_app.Controllers
                 ColumnTitleUnitPrice = "Product price",
                 Cards = cardService
                     .getCardByRarity(rarity)
-                    .Take(10)
+                    .Take(250)
                     .Select(c =>
                         new CardViewModel
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
-                            //Rarity = c.RarityCode,
-                            //Price = GetPrice(c.MultiverseId),
+                            //Rarity = c.RarityCode, 
+                            // 
+                            Price = getPrice(c.MultiverseId) ,
                             Url = c.OriginalImageUrl
                         })
                     .ToList()
@@ -111,7 +118,7 @@ namespace mtg_app.Controllers
                             Name = cardService.GetCardById(multiverse).Name,
                             Multiverse_id = cardService.GetCardById(multiverse).MultiverseId,
                             //Rarity = c.RarityCode,
-                            //Price = GetPrice(c.MultiverseId),
+                            Price = getPrice(cardService.GetCardById(multiverse).MultiverseId),
                             Url = cardService.GetCardById(multiverse).OriginalImageUrl
                         };
             //return View(Cards);
@@ -130,7 +137,8 @@ namespace mtg_app.Controllers
 
         public CardsViewModel createPrice()
         {
-            double price = double.Parse("25.40");
+            //double price = double.Parse("25.40");
+
             return new CardsViewModel
             {
                 PageTitle = "Cards",
@@ -139,13 +147,13 @@ namespace mtg_app.Controllers
                 Cards = cardService
                     .AllCards()
                     .Take(10)
-                    .Select(c =>
+                    .Select(c => 
                         new CardViewModel
                         {
                             Name = c.Name,
                             Multiverse_id = c.MultiverseId,
-                            Price = price, 
-                            //Price = GetPrice(c.MultiverseId),
+                            // Price = price, 
+                            Price = getPrice(c.MultiverseId),
                             Url = c.OriginalImageUrl
                         })
                     .ToList()

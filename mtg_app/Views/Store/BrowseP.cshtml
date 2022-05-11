@@ -23,6 +23,7 @@
                     <li>@item.Name</li>
                     <li>@item.Multiverse_id</li>
                     <li>@item.Price</li>
+                    <img src=@item.Url>
           <form asp-controller="Shopping"  asp-action="addItem"  method="Post">
                             
                             <input name="userId" value="1" class="form-control" type="hidden"/>
@@ -33,9 +34,7 @@
                             <input name="price" value="@item.Price" class="form-control" type="hidden"/>
                             <input name="totalPrice" value="@item.Price" class="form-control" type="hidden"/>
                             <input type="number" id="tentacles" name="qty" min="1" max="10">
-                            <input type="submit" value="stem voor @item.Multiverse_id" class="btn btn-primary" />
-                
-                            
+                            <input type="submit" value="stem voor @item.Multiverse_id" class="btn btn-primary" />          
             </form>
                 
         }

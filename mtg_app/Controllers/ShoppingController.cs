@@ -54,14 +54,17 @@ namespace mtg_app.Controllers
                         new CartItemViewModel
                         {
                             Userid = c.Userid,
-                            Price = c.Price
+                            Productid = c.Productid,
+                            Productname = c.Productname,
+                            Productimageurl = c.Productimageurl,
+                            Price = c.Price,
+                            Totalprice = c.Totalprice,
+                            Qty = c.Qty
                         })
                     .ToList()
                     
             };
         }
-        
-        
         
          /*
         public CardsViewModel createBasket()
@@ -138,65 +141,17 @@ namespace mtg_app.Controllers
 
         }
 
-
-
-        /*
-        public async Task<IActionResult> Vote(long playerId, int episode)
+        [HttpPost] 
+        public ActionResult deleteItem(int userId, int productId, string productName, string productImageUrl, double price, double totalPrice, double qty)
         {
-            //var user = await userManager.GetUserAsync(HttpContext.User);
+        //int Userid, int ProductId, string Productname, string productimageurl, double price, double totalprice, double qty
 
-            voteService.VoteOn(playerId, user.Id, episode);
+            serviceShopping.deleteItem(userId,productId, productName, productImageUrl, price, totalPrice, qty);
+            return View("AddItem");
 
-            return Redirect("/");
 
         }
-        
-        
-        [HttpPost]  
-        public ActionResult AddItem(CardViewModel cardView, int qty)
-        {
 
-            using (SqlConnection cn = new SqlConnection(connection))
-            {
-                cn.Open();
-                string sql =  "INSERT INTO CartItems (UserId, ProductId, ProductName, ProductImageURL, Price, Qty, TotalPrice) VALUES(@param1,@param2,@param3,@param4,@param5,@param6,@param7)";
-                using(SqlCommand cmd = new SqlCommand(sql,cn)) 
-            {
-                  cmd.Parameters.Add("@param1", SqlDbType.Int).Value = 1;  
-                  cmd.Parameters.Add("@param2", SqlDbType.Int).Value = cardView.Multiverse_id;
-                  cmd.Parameters.Add("@param3", SqlDbType.VarChar, 255).Value = cardView.Name;
-                  cmd.Parameters.Add("@param4", SqlDbType.VarChar, 255).Value = cardView.Url;
-                  cmd.Parameters.Add("@param5", SqlDbType.Float).Value = cardView.Price;
-                  cmd.Parameters.Add("@param6", SqlDbType.Float).Value = qty;
-                  cmd.Parameters.Add("@param7", SqlDbType.Float).Value = cardView.Price * cardView.Qty;
-                
-
-                  cmd.CommandType = CommandType.Text;
-                  cmd.ExecuteNonQuery(); 
-            }
-            
-            return View(AddItem());
-        }
-
-        */
-
-        /*
-
-        public Task<CartItem> DeleteItem(int id)
-        {
-            return null;
-        }
-        public Task<CartItem> GetItem(int id)
-        {
-            return null;
-        }
-        public Task<IEnumerable<CartItem>> GetItems(ShoppingAddViewModel shoppingAddViewModel)
-        {
-            return null;
-        }
-
-        */
-        
-        }
 
     }
+}
