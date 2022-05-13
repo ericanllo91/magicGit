@@ -93,7 +93,7 @@ namespace mtg_app.Controllers
         //int Userid, int ProductId, string Productname, string productimageurl, double price, double totalprice, double qty
 
             serviceShopping.deleteItem(userId,productId, productName, productImageUrl, price, totalPrice, qty);
-            return View(AddItem());
+            return View("AddItem");
 
 
         }

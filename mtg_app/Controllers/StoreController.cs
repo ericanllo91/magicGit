@@ -75,6 +75,7 @@ namespace mtg_app.Controllers
                         return cvm.Price > 0;
                     })
                     .Take(10)
+                    .OrderBy(p=> p.Price)
                     .ToList()
             };
         }
