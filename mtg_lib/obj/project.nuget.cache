@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7mtp9K6iMAg3aUvUXJlWH7HY0bWUvEyAUwQhh1d/FjMxPtg0I/f5hVL226t6fmRibZcWc1OHIUKSfAycewn6mg==",
+  "dgSpecHash": "U8PpBVdYtTpnG9BeY/g5CG3hYqtJwcZ9FjtXRwRpsR+MZlc6LLI16e+znvOzhMCTKU+cdHRcY1Vzbf1vAb5nHw==",
   "success": true,
   "projectFilePath": "D:\\eric_\\Git\\magicGit\\mtg_lib\\mtg_lib.csproj",
   "expectedPackageFiles": [
@@ -38,6 +38,7 @@
     "C:\\Users\\eric_\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\eric_\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\npgsql\\6.0.0\\npgsql.6.0.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.0\\npgsql.entityframeworkcore.postgresql.6.0.0.nupkg.sha512",
     "C:\\Users\\eric_\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql.design\\1.1.0\\npgsql.entityframeworkcore.postgresql.design.1.1.0.nupkg.sha512",

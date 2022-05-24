@@ -8,121 +8,121 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = mtg_app
 build_property.RootNamespace = mtg_app
-build_property.ProjectDir = D:\eric_\Git\magicGit\mtg_app\
+build_property.ProjectDir = d:\eric_\Git\magicGit\mtg_app\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\eric_\Git\magicGit\mtg_app
+build_property.MSBuildProjectDirectory = d:\eric_\Git\magicGit\mtg_app
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/eric_/Git/magicGit/mtg_app/Areas/Identity/Pages/_ViewStart.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Home/Index.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Home/Privacy.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Shared/Error.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Shared/_LoginPartial.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Shared/_UserLayout.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Shared/_UserLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Vc2VyTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Shared/_ValidationScriptsPartial.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Shopping/AddItem.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Shopping/AddItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcHBpbmdcQWRkSXRlbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Shopping/Cart.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Shopping/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcHBpbmdcQ2FydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Shopping/Index.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Shopping/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcHBpbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Create.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Delete.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Details.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Edit.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Index.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/StoreManager/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVNYW5hZ2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Store/BrowseM.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Store/BrowseM.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcQnJvd3NlTS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Store/BrowseP.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Store/BrowseP.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcQnJvd3NlUC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Store/BrowseR.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Store/BrowseR.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcQnJvd3NlUi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Store/Details.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Store/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Store/Index.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Store/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/User/BrowseM.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/User/BrowseM.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxCcm93c2VNLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/User/BrowseP.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/User/BrowseP.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxCcm93c2VQLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/User/BrowseR.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/User/BrowseR.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxCcm93c2VSLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/User/Details.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/User/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/User/Login.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/_ViewImports.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/_ViewStart.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/eric_/Git/magicGit/mtg_app/Views/Shared/_Layout.cshtml]
+[d:/eric_/Git/magicGit/mtg_app/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-w9mmnrinne

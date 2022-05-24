@@ -31,7 +31,7 @@ namespace mtg_app.Controllers
             WebClient wc = new WebClient();
             string start = wc.DownloadString($"https://mpapi.tcgplayer.com/v2/product/{id}/pricepoints");
             dynamic dobj = JsonConvert.DeserializeObject<dynamic>(start);
-            string price = dobj[1]["marketPrice"];
+            string price = dobj[0]["marketPrice"];
             if(price == null)
             {
                 return 0;
@@ -75,6 +75,7 @@ namespace mtg_app.Controllers
                         return cvm.Price > 0;
                     })
                     .Take(10)
+                    .OrderBy(p=> p.Price)
                     .ToList()
             };
         }

@@ -33,7 +33,7 @@
             <div style="border: dashed;">
             <div style="display:inline-block; margin:50px">
             <h2>@item.Productname -- Product Name</h2>
-            <h2>@item.Price $</h2>
+            <h2>@item.Price "$"</h2>
             <h3>@item.Qty</h3>
             <img src=@item.Productimageurl>
             </div>
@@ -53,10 +53,12 @@
             </div>
 
         };
-
-        <form asp-controller="Shopping"  asp-action="Index"  method="Post" style="text-align: center;">
-            <input type="submit" value="PAYMENT" class="btn btn-primary" />
-        </form>
+        @if (Model != null) {
+            <form asp-controller="Shopping"  asp-action="Index"  method="Post" style="text-align: center;">
+                <input style="margin: 0 500px" type="submit" value="PAYMENT" class="btn btn-primary" />
+            </form>
+    }
+       
     </ul>
 </div>
 
